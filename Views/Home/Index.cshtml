@@ -1,0 +1,16 @@
+﻿@model List<MongoAndMVC.Models.MongoPictureModel>
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<h2>Gallery</h2>
+
+@Html.ActionLink("Add a new Picture", "AddPicture")
+
+@foreach (var pictue in Model)
+{
+    <div>
+        @pictue.FileName<br />
+        <img src="@string.Format("/Gallery/ShowPicture/{0}",pictue._id.ToString())" alt="@pictue.FileName" />
+    </div>
+}
